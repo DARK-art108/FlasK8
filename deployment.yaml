@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: ml-score-api
+  name: ml-score-api
+  namespace: ml-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ml-score-api
+  template:
+    metadata:
+      labels:
+        app: ml-score-api
+    spec:
+      containers:
+      - image: ritesh2000/ml-score-api:latest
+        name: ml-score-api
+        ports:
+        - containerPort: 5000
